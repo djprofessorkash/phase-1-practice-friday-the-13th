@@ -64,7 +64,7 @@ const showMovieDetail = (currentMovie) => {
     let detailImage = document.querySelector("#detail-image");
     let detailDescription = document.querySelector("#description");
     let detailYearReleased = document.querySelector("#year-released");
-    let watchedButton = document.querySelector("#watched");
+    let watchedStatusButton = document.querySelector("#watched");
     let bloodAmount = document.querySelector("#amount");
 
     // Set all HTML card attributes to relevant properties from movie object data. 🪡
@@ -72,6 +72,6 @@ const showMovieDetail = (currentMovie) => {
     detailImage.src = currentMovie.image;
     detailDescription.textContent = currentMovie.description;
     detailYearReleased.textContent = currentMovie.release_year;
-    watchedButton.textContent = currentMovie.watched ? "Watched" : "Unwatched"
+    watchedStatusButton.textContent = currentMovie.watched ? "Watched" : "Unwatched"
     bloodAmount.textContent = currentMovie.blood_amount;
 }

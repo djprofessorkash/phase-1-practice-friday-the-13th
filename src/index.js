@@ -1,10 +1,11 @@
 /* 
-👁️‍🗨️ SOLUTIONS TO CHALLENGE #1-3:
+👁️‍🗨️ SOLUTIONS TO CHALLENGE #1-5:
 
 🎞️ LOADING IMAGES INTO FRONTEND.
 🌆 DISPLAYING FIRST MOVIE DETAIL CARD WITH LARGER IMAGE.
 🖱️ ENABLE MOVIE DETAIL CARD RENDERING ON CLICK AND WATCH BUTTON TEXT DATABASE POPULATION.
 👁️‍🗨️ ENABLE WATCH BUTTON STATUS TOGGLING FUNCTIONALITY WITH SAME-PAGE PERSISTENCE.
+🩸 ENABLE ADDITIVE MOVIE-SPECIFIC BLOOD DROP FORM.
 */
 
 /*
@@ -31,6 +32,9 @@
 
 📝 PSEUDOCODE FOR CHALLENGE #4:
     • On click event, reload image card with new details.
+
+📝 PSEUDOCODE FOR CHALLENGE #5:
+    • On submit event, reload image card with added integer total.
 */
 
 /*
@@ -57,6 +61,9 @@ fetch("http://localhost:3000/movies")
 
         // "Activate" functionality of watched status button on current movie detail card
         enableWatchedStatusButton();
+
+        // "Activate" functionality of additive blood drop form on current movie detail card
+        enableAdditiveBloodDropForm();
     })
 
 /*
@@ -119,5 +126,32 @@ const enableWatchedStatusButton = () => {
 
         // Update button's text content to reflect newly toggled watch status
         watchedStatusButton.textContent = currentMovie.watched ? "Watched" : "Unwatched";
+    })
+}
+
+/* 
+HELPER FUNCTIONS:
+ACTIVATE ADDITIVE BLOOD DROP INPUT FORM PER MOVIE.
+*/
+const enableAdditiveBloodDropForm = () => {
+    // Get HTML element for movie card blood drop submission form
+    let additiveBloodDropForm = document.querySelector("#blood-form");
+
+    // Create on-submit event listener to handle data adding
+    additiveBloodDropForm.addEventListener("submit", (event) => {
+        // Voids page reload on event trigger
+        event.preventDefault();
+
+        // Extracts user-submitted input quantity to add to current movie card blood total
+        const quantityOfBloodToAdd = event.target["blood-amount"].value;
+
+        // Adds extracted quantity to current movie card's total blood amount
+        currentMovie.blood_amount += parseInt(quantityOfBloodToAdd);
+
+        // Updates blood amount HTML element with new added total
+        document.querySelector("#amount").textContent = currentMovie.blood_amount;
+        
+        // Unloads typed content when user submits form data
+        event.target.reset();
     })
 }

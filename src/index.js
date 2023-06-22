@@ -82,7 +82,7 @@ DISPLAY MOVIE CARD AND INFO FOR GIVEN MOVIE
 */
 const showMovieDetail = (movie) => {
     currentMovie = movie;
-    
+
     // Define variables for all additional movie details and properties. ✍🏽
     let detailTitle = document.querySelector("#title");
     let detailImage = document.querySelector("#detail-image");
@@ -105,9 +105,15 @@ HELPER FUNCTIONS:
 ACTIVATE WATCHED STATUS BUTTON FUNCTIONALITY FOR CURRENTLY LOADED MOVIE CARD.
 */
 const enableWatchedStatusButton = () => {
+    // Get HTML element for toggle-able watch status button
     let watchedStatusButton = document.querySelector("#watched");
+
+    // Create on-click event listener to handle toggling
     watchedStatusButton.addEventListener("click", () => {
+        // Toggle on/off for new button status
         currentMovie.watched = !currentMovie.watched;
+
+        // Update button's text content to reflect newly toggled watch status
         watchedStatusButton.textContent = currentMovie.watched ? "Watched" : "Unwatched";
     })
 }

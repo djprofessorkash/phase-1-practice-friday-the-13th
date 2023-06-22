@@ -80,7 +80,9 @@ const renderMovieImageInBar = (movie) =>{
 HELPER FUNCTIONS:
 DISPLAY MOVIE CARD AND INFO FOR GIVEN MOVIE
 */
-const showMovieDetail = (currentMovie) => {
+const showMovieDetail = (movie) => {
+    currentMovie = movie;
+    
     // Define variables for all additional movie details and properties. ✍🏽
     let detailTitle = document.querySelector("#title");
     let detailImage = document.querySelector("#detail-image");

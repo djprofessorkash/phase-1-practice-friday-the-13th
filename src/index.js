@@ -1,9 +1,10 @@
 /* 
-👁️‍🗨️ SOLUTIONS TO CHALLENGE #1-3:
+👁️‍🗨️ SOLUTIONS TO CHALLENGE #1-4:
 
 🎞️ LOADING IMAGES INTO FRONTEND.
 🌆 DISPLAYING FIRST MOVIE DETAIL CARD WITH LARGER IMAGE.
 🖱️ ENABLE MOVIE DETAIL CARD RENDERING ON CLICK AND WATCH STATUS BUTTON TOGGLE.
+
 */
 
 /*
@@ -26,7 +27,7 @@
 
 📝 PSEUDOCODE FOR CHALLENGE #3:
     • Create event handler in rendering function to handle navbar icon clicks.
-    • On click event, reload image card with new details.
+    • Render watched status on movie details based on database status.
 */
 
 /*
@@ -50,9 +51,6 @@ fetch("http://localhost:3000/movies")
 
         // Load first movie details and larger image on page (re)load
         showMovieDetail(movies[0]);
-
-        // "Activate" functionality of watched status button on current movie detail card
-        enableWatchedStatusButton();
     })
 
 /*
@@ -98,22 +96,4 @@ const showMovieDetail = (movie) => {
     detailYearReleased.textContent = currentMovie.release_year;
     watchedStatusButton.textContent = currentMovie.watched ? "Watched" : "Unwatched"
     bloodAmount.textContent = currentMovie.blood_amount;
-}
-
-/*
-HELPER FUNCTIONS:
-ACTIVATE WATCHED STATUS BUTTON FUNCTIONALITY FOR CURRENTLY LOADED MOVIE CARD.
-*/
-const enableWatchedStatusButton = () => {
-    // Get HTML element for toggle-able watch status button
-    let watchedStatusButton = document.querySelector("#watched");
-
-    // Create on-click event listener to handle toggling
-    watchedStatusButton.addEventListener("click", () => {
-        // Toggle on/off for new button status
-        currentMovie.watched = !currentMovie.watched;
-
-        // Update button's text content to reflect newly toggled watch status
-        watchedStatusButton.textContent = currentMovie.watched ? "Watched" : "Unwatched";
-    })
 }

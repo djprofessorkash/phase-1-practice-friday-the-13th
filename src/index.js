@@ -3,7 +3,8 @@
 
 🎞️ LOADING IMAGES INTO FRONTEND.
 🌆 DISPLAYING FIRST MOVIE DETAIL CARD WITH LARGER IMAGE.
-🖱️ ENABLE MOVIE DETAIL CARD RENDERING ON CLICK AND WATCH STATUS BUTTON TOGGLE.
+🖱️ ENABLE MOVIE DETAIL CARD RENDERING ON CLICK AND WATCH BUTTON TEXT DATABASE POPULATION.
+👁️‍🗨️ ENABLE WATCH BUTTON STATUS TOGGLING FUNCTIONALITY WITH SAME-PAGE PERSISTENCE.
 */
 
 /*
@@ -26,6 +27,9 @@
 
 📝 PSEUDOCODE FOR CHALLENGE #3:
     • Create event handler in rendering function to handle navbar icon clicks.
+    • Render watched status on movie details based on database status.
+
+📝 PSEUDOCODE FOR CHALLENGE #4:
     • On click event, reload image card with new details.
 */
 
